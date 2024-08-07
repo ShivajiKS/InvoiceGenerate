@@ -1,46 +1,12 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { getUserSession } from '@/actions/getUserSession';
+import SignInForm from '@/components/sign-in';
+import { redirect } from 'next/navigation';
 
-export default function LoginForm() {
-  return (
-    <div className="h-screen">
-      <div className="w-full h-full flex justify-center items-center">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>
-              Enter your email below to login to your account.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" required />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full mt-3">Sign in</Button>
-          </CardFooter>
-        </Card>
-      </div>
-    </div>
-  );
+export default async function Page() {
+  const {
+    data: { session },
+  } = await getUserSession();
+  if (session) redirect('/admin/dashboard/generate-invoice');
+
+  return <SignInForm />;
 }

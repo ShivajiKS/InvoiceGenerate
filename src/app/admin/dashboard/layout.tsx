@@ -1,5 +1,4 @@
-import DashboardSideBar from "@/app/admin/dashboard/_Components/DashboardSideBar";
-import DashboardNavBar from "./_Components/DashboardNavBar";
+import DashboardLayout from '@/components/dashboardLayout';
 
 export default function RootLayout({
   children,
@@ -7,11 +6,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid w-full min-h-screen lg:grid-cols-[240px_1fr]">
-      <DashboardSideBar />
-      <DashboardNavBar>
-        <main className="flex flex-col gap-4 lg:gap-6">{children}</main>
-      </DashboardNavBar>
-    </div>
+    <>
+      <DashboardLayout>
+        <div className='flex h-full w-full flex-1 flex-col gap-2 rounded-tl-2xl border border-neutral-200 bg-white p-2 dark:border-neutral-700 dark:bg-neutral-900 md:p-5'>
+          {children}
+        </div>
+      </DashboardLayout>
+    </>
   );
 }

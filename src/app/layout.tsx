@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import Footer from "@/components/Footer";
+import type { Metadata } from 'next';
+import { Inter as FontSans } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
-  title: "Srinu Invoice",
-  description: "It is a Invoice generator application..",
+  title: 'Srinu Invoice',
+  description: 'It is a Invoice generator application..',
 };
 
 export default function RootLayout({
@@ -20,16 +21,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <head />
       <body
         className={cn(
-          "bg-background font-sans antialiased flex flex-col relative w-screen min-h-screen p-0 m-0 overflow-x-hidden ",
+          'relative flex min-h-screen w-screen flex-col bg-background font-sans antialiased',
           fontSans.variable
         )}
       >
-        <div className="flex-grow">{children}</div>
-        {/* <Footer /> */}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className='flex-grow'>{children}</div>
+        </ThemeProvider>
+        <Toaster
+          toastOptions={{
+            style: { color: 'red' },
+            className: 'my-toast',
+          }}
+        />
       </body>
     </html>
   );
