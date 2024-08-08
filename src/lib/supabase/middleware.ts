@@ -54,7 +54,7 @@ export async function updateSession(request: NextRequest) {
   // DEFAULT_LOGIN_REDIRECT is absolute url and by combining both DEFAULT_LOGIN_REDIRECT and next url to form a relative url.
 
   if (!user && !isPublicRoute) {
-    return NextResponse.redirect(new URL('/'));
+    return NextResponse.redirect(new URL('/', nextUrl));
   }
 
   return supabaseResponse;
