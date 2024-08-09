@@ -48,7 +48,7 @@ export default function SignInForm() {
   } = form;
 
   return (
-    <div className='box-border py-9 lg:py-24'>
+    <div className='mt-28 box-border lg:mt-0 lg:py-24'>
       <Card className='mx-auto max-w-sm lg:max-w-md'>
         <CardHeader>
           <CardTitle className='text-2xl'>Login</CardTitle>

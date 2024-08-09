@@ -36,7 +36,7 @@ export default async function Page({
 
   return (
     data && (
-      <div className='mx-auto mt-12 flex max-w-3xl flex-col space-y-6 rounded-b-md bg-white px-2 py-4 shadow-md'>
+      <div className='mx-auto mt-8 flex max-w-3xl flex-col space-y-6 rounded-b-md bg-white px-2 py-4 shadow-md'>
         {data.map(({ id, name, complaints, amount, mobile, model }) => (
           <Card key={id} className='w-full space-y-5 bg-white p-5'>
             <div>
