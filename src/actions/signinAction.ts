@@ -21,10 +21,10 @@ export async function SignInAction(formData: z.infer<typeof SignInSchema>) {
     password,
   });
 
-  if (response.error)
+  if (response.error) {
     return { success: false, message: response.error.message };
+  }
 
-  // return { success: true, message: 'Sign-in successful' };
   revalidatePath('/', 'layout');
   redirect('/admin/dashboard/generate-invoice');
 }

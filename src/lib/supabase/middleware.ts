@@ -45,8 +45,9 @@ export async function updateSession(request: NextRequest) {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
-  if (isApiAuthRoute) return null;
+  // if (isApiAuthRoute) return null;
 
+  
   if (isAuthRoute && user) {
     return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
   }

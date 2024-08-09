@@ -1,7 +1,6 @@
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { columns } from './columns';
 import { DataTable } from './data-table';
-import { redirect } from 'next/navigation';
 
 const data = [
   {
@@ -245,8 +244,6 @@ const data = [
     amount: 6800,
   },
 ];
-
-// if you pass empty array to data prop, it will render "no result"
 
 export default async function CustomerInvoice() {
   return (

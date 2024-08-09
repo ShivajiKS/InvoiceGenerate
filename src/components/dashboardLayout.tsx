@@ -10,6 +10,8 @@ import Image from 'next/image';
 import { logout } from '@/lib/supabase/logout';
 import { useRouter } from 'next/navigation';
 import { createSupabaseBrowserClient } from '@/lib/supabase/client';
+import { toast } from 'sonner';
+import { Button } from './ui/button';
 
 export default function DashboardLayout({
   children,
@@ -62,18 +64,23 @@ export default function DashboardLayout({
             </div>
           </div>
           <div>
-            <div
+            <Button
+              variant='link'
               className='flex cursor-pointer items-center space-x-3 px-4 pb-10'
               onClick={async () => {
                 const supabase = createSupabaseBrowserClient();
                 const { error } = await supabase.auth.signOut();
                 if (error) return;
+                toast('Logout successful', {
+                  duration: 1500,
+                  position: 'top-right',
+                });
                 router.refresh();
               }}
             >
               <IconArrowLeft className='h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200' />
               <span>Logout</span>
-            </div>
+            </Button>
           </div>
         </SidebarBody>
       </Sidebar>

@@ -11,7 +11,7 @@ export const publicRoutes = ['/'];
  * these routes will redirect logged in users to /admin/dashboard/generate-invoice.
  * @type {string[]}
  */
-export const authRoutes = ['/sign-in', '/sign-up'];
+export const authRoutes = ['/sign-in', '/sign-up', '/'];
 
 /*
  * the prefix for API authentication routes.

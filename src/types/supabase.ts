@@ -15,8 +15,8 @@ export type Database = {
           complaints: string | null
           created_at: string
           id: string
-          "make & model": string | null
-          "mobile number": string | null
+          mobile: string | null
+          model: string | null
           name: string | null
         }
         Insert: {
@@ -24,8 +24,8 @@ export type Database = {
           complaints?: string | null
           created_at?: string
           id?: string
-          "make & model"?: string | null
-          "mobile number"?: string | null
+          mobile?: string | null
+          model?: string | null
           name?: string | null
         }
         Update: {
@@ -33,8 +33,8 @@ export type Database = {
           complaints?: string | null
           created_at?: string
           id?: string
-          "make & model"?: string | null
-          "mobile number"?: string | null
+          mobile?: string | null
+          model?: string | null
           name?: string | null
         }
         Relationships: []

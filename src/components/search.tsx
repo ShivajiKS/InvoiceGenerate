@@ -28,7 +28,7 @@ export default function SearchBox() {
   const onSubmit = () => {
     if (!!searchQuery) {
       startTransition(() => {
-        router.push(`/admin/dashboard/search?query=${searchQuery}`);
+        router.push(`/admin/dashboard/search/result?mobile=${searchQuery}`);
       });
     }
   };

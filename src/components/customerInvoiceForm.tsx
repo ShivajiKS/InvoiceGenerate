@@ -38,8 +38,8 @@ export default function CustomerInvoiceForm() {
     resolver: zodResolver(customerInvoiceSchema),
     defaultValues: {
       name: '',
-      'mobile number': '',
-      'make & model': '',
+      mobile: '',
+      model: '',
       complaints: '',
       amount: '',
     },
@@ -99,7 +99,7 @@ export default function CustomerInvoiceForm() {
                     <div className='grid gap-2'>
                       <FormField
                         control={form.control}
-                        name='mobile number'
+                        name='mobile'
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Mobile Number</FormLabel>
@@ -120,7 +120,7 @@ export default function CustomerInvoiceForm() {
                     <div className='grid gap-2'>
                       <FormField
                         control={form.control}
-                        name='make & model'
+                        name='model'
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Make & Mobile</FormLabel>

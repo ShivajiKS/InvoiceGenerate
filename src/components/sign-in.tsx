@@ -38,7 +38,7 @@ export default function SignInForm() {
   const onSubmit = async (values: z.infer<typeof SignInSchema>) => {
     const response = await SignInAction(values);
 
-    if (!response?.success) {
+    if (response?.success === false) {
       toast.error(response?.message, { position: 'top-right', duration: 1500 });
     }
   };

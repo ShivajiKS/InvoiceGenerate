@@ -18,6 +18,8 @@ export async function generateInvoice(
 
   const { error } = await db.from('customers').insert({ ...data.data });
 
+  console.log(error)
+
   if (error) return { error: 401, message: 'Unable to generate' };
 
   redirect('/admin/dashboard/invoice-pdf');
